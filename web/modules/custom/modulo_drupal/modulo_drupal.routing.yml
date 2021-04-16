@@ -1,0 +1,10 @@
+
+
+modulo_drupal.content:
+  path: '/admin/config/formularioprueba2'
+  defaults:
+    _form: '\Drupal\modulo_drupal\Form\FranForm'
+    _title: 'Form'
+  requirements:
+    _permission: 'access content'
+

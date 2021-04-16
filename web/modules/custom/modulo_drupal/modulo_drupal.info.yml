@@ -1,0 +1,8 @@
+name: Modulo Francisco
+type: module
+package: Francisco
+description: Crear un modulo de desacoplo de drupal a gatsby
+
+core: 8.x
+
+

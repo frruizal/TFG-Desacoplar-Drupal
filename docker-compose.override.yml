@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  php:
+    #    environment:
+    #      PHP_XDEBUG: 1
+    #      PHP_XDEBUG_DEFAULT_ENABLE: 1
+    volumes:
+      - ./:/var/www/html
+
+  apache:
+    volumes:
+      - ./:/var/www/html
+
+  traefik:
+    image: traefik:v1.7.6-alpine
