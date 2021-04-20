@@ -68,28 +68,4 @@ function tfg_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
 
 }
 
-function tfg_views_post_execute(ViewExecutable $view) {
-/*
-  $handle = curl_init();
-
-  $url = "172.22.0.7:3000/compilar";
-
-  curl_setopt($handle, CURLOPT_PORT, 3000);
-  // Set the url
-
-  curl_setopt($handle, CURLOPT_URL, $url);
-
-  // Set the result output to be a string.
-  curl_setopt($handle, CURLOPT_RETURNTRANSFER, TRUE);
-
-  //url_setopt ($handle, CURLOPT_PORT , 3000);
-  $output = curl_exec($handle);
-
-  curl_close($handle);
-
-  echo $output;
-  drupal_set_message($output);
-*/
-}
-
 
