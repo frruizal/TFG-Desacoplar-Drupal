@@ -1,6 +1,0 @@
-modulo_durpal.admin:
-  title: 'Modulo Drupal settings'
-  description: 'Administration page of Drupal module by Francisco'
-  parent: system.admin_config_development
-  route_name: modulo_drupal.content
-  weight: 100
