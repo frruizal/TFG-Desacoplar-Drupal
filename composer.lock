@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1dbadb715b2e838a46a3a0aba6a7d21e",
+    "content-hash": "bff703896eb2a1d50e0b215de40cbf6b",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2783,6 +2783,58 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/graphql_twig",
                 "issues": "https://www.drupal.org/project/issues/graphql_twig"
+            }
+        },
+        {
+            "name": "drupal/hook_post_action",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/hook_post_action.git",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/hook_post_action-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "d7a302ad395938feebbfb77a09cf6148c1bb75f5"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1610451402",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Sina Salek (sinasalek)",
+                    "homepage": "https://www.drupal.org/u/sinasalek",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Serge Skripchuk (id.tarzanych)",
+                    "homepage": "https://www.drupal.org/u/idtarzanych",
+                    "role": "Co-maintainer"
+                }
+            ],
+            "description": "Currently Drupal core does not offer any hook to do actions after a node/entity is insered/updated/deleted in Database. So this module introduces several new Drupal hooks to overcome this limitation",
+            "homepage": "https://drupal.org/project/hook_post_action",
+            "support": {
+                "source": "https://cgit.drupalcode.org/hook_post_action",
+                "issues": "https://drupal.org/project/issues/hook_post_action",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
             }
         },
         {

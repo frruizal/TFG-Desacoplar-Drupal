@@ -6,7 +6,8 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
-
+use Drupal\node\Entity\Node;
+use Drupal\node\Entity\NodeType;
 /**
  * Implements hook_help().
  */
@@ -35,20 +36,13 @@ function tfg_theme() {
 }
 
 /**
- * Implements hook_entity_view().
- */
-function tfg_entity_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
-
-}
-
-/**
- * Implements hook_entity_update().
- */
-function tfg_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+ * Implements hook_node_postupdate().
+ *//*
+function tfg_node_postupdate($node) {
 
   $handle = curl_init();
 
-  $url = "172.22.0.7:3000/compilar";
+  $url = "172.22.0.4:3000/compilar";
 
   curl_setopt($handle, CURLOPT_PORT, 3000);
   // Set the url
@@ -66,6 +60,62 @@ function tfg_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
   echo $output;
   drupal_set_message($output);
 
-}
+}*/
+/**
+ * Implements hook_entity_view().
+ */
+/*function tfg_entity_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+ $nid=2;
+  $nodo= node_load($nid);
+  dsm($nodo);
 
+  $types = NodeType::loadMultiple();
+  $nodes = Node::loadMultiple();
+  $alias_manager = \Drupal::service('path.alias_manager');
+  foreach ($types as $key => $type) {
+    $list[$key] = $type->get('name');
+    dsm( "---------------------------");
+    dsm( $list[$key]);
+    dsm( "---------------------------");
+  }
+  foreach($nodes as $key2 => $node) {
+    //Se obtiene el nid del nodo
+    $nid = $node->id();
+    //Se obtiene el alias del nodo a traves de la ruta con el Alias Manager
+    $node_alias = $alias_manager->getAliasByPath('/node/' . $nid);
+
+    $node_print[$nid]['path_alias'] = $node_alias;
+    $node_print[$nid]['title'] = $node->getTitle();
+    $body = $node->get('body')-> getValue();
+    dsm($node_alias);
+    dsm($node->getTitle());
+    dsm($body[0]['value']);
+    //dsm($node->get('usuario')->getValue()[0][field_fecha]);
+
+  }
+}*/
+
+/**
+ * Gets called after a node has been deleted from database.
+ *
+ * @param $node
+ *   A node object
+ *
+ * @see hook_node_postsave()
+ * @see hook_node_postinsert()
+ * @see hook_node_postupdate()
+ * @see hook_node_postdelete()
+ *//*
+function hook_post_action_example_node_postdelete($node) {
+  watchdog('hook_post_action_test', "The deleted node {$node->type} id is {$node->nid} from " . __FUNCTION__);
+}
+*/
+function tfg_entity_postdelete(EntityInterface $entity) {
+  $id = $entity->id();
+  $entity_type = $entity->getEntityTypeId();
+
+  \Drupal::logger('hook_post_action_postdelete')
+    ->info("The deleted entity {$entity_type} id is {$id} from " . __FUNCTION__);
+  dsm('borrada');
+}
 
