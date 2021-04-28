@@ -1,0 +1,7 @@
+name: 'modulo_compilacion_drupal'
+type: module
+description: 'Modulo conversor'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - hook_post_action

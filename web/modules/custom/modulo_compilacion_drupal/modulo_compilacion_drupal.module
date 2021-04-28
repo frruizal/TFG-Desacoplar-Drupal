@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Contains modulo_compilacion_drupal.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityInterface;
+/**
+ * Implements hook_help().
+ */
+function modulo_compilacion_drupal_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the modulo_compilacion_drupal module.
+    case 'help.page.modulo_compilacion_drupal':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Modulo conversor') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_entity_postupdate().
+ */
+function modulo_compilacion_drupal_entity_postupdate(EntityInterface $entity) {
+
+  $handle = curl_init();
+  $url = "172.22.0.7:3000/compilar";
+  curl_setopt($handle, CURLOPT_PORT, 3000);
+  // Set the url
+  curl_setopt($handle, CURLOPT_URL, $url);
+  // Set the result output to be a string.
+  curl_setopt($handle, CURLOPT_RETURNTRANSFER, TRUE);
+  //url_setopt ($handle, CURLOPT_PORT , 3000);
+  $output = curl_exec($handle);
+  curl_close($handle);
+
+  $id = $entity->id();
+  $entity_type = $entity->getEntityTypeId();
+  \Drupal::logger('hook_post_action_entity_postupdate')
+    ->info("Gatsby actualized entity {$entity_type} id is {$id} from " . __FUNCTION__);
+}
+

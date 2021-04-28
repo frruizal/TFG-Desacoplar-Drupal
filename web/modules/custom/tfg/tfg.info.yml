@@ -1,5 +1,0 @@
-name: 'TFG'
-type: module
-description: 'Compile Gatsby on hook save'
-core: 8.x
-package: 'Custom'
