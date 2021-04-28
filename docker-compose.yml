@@ -87,8 +87,13 @@ services:
     ports:
       - '3000:8000'
     #networks:
-      #- express
+      #static-network:
+        #ipv4_address: 172.22.0.7
 
-#express:
-  #ipv4_address: 172.22.0.7
+#networks:
+  #static-network:
+    #ipam:
+      #config:
+        #- subnet: 172.22.0.0/16
+
 

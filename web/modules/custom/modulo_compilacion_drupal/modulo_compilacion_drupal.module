@@ -30,18 +30,46 @@ function modulo_compilacion_drupal_entity_postupdate(EntityInterface $entity) {
 
   $handle = curl_init();
   $url = "172.22.0.7:3000/compilar";
-  curl_setopt($handle, CURLOPT_PORT, 3000);
-  // Set the url
+  // Establecer la url
   curl_setopt($handle, CURLOPT_URL, $url);
-  // Set the result output to be a string.
-  curl_setopt($handle, CURLOPT_RETURNTRANSFER, TRUE);
-  //url_setopt ($handle, CURLOPT_PORT , 3000);
+ //realizar el exec del curl
   $output = curl_exec($handle);
   curl_close($handle);
 
   $id = $entity->id();
   $entity_type = $entity->getEntityTypeId();
   \Drupal::logger('hook_post_action_entity_postupdate')
-    ->info("Gatsby actualized entity {$entity_type} id is {$id} from " . __FUNCTION__);
+    ->info("Updated gatsby entity {$entity_type} id is {$id} from " . __FUNCTION__);
 }
 
+/**
+ * Implements hook_entity_postinsert().
+ */
+function modulo_compilacion_drupal_entity_postinsert(EntityInterface $entity) {
+  $handle = curl_init();
+  $url = "172.22.0.7:3000/compilar";
+  curl_setopt($handle, CURLOPT_URL, $url);
+  $output = curl_exec($handle);
+  curl_close($handle);
+
+  $id = $entity->id();
+  $entity_type = $entity->getEntityTypeId();
+  \Drupal::logger('hook_post_action_entity_postinsert')
+    ->info("Insert gatsby entity {$entity_type} id is {$id} from " . __FUNCTION__);
+}
+
+/**
+ * Implements hook_entity_postdelete().
+ */
+function modulo_compilacion_drupal_entity_postdelete(EntityInterface $entity) {
+  $handle = curl_init();
+  $url = "172.22.0.7:3000/compilar";
+  curl_setopt($handle, CURLOPT_URL, $url);
+  $output = curl_exec($handle);
+  curl_close($handle);
+
+  $id = $entity->id();
+  $entity_type = $entity->getEntityTypeId();
+  \Drupal::logger('hook_post_action_entity_postdelete')
+    ->info("Deleted gatsby entity {$entity_type} id is {$id} from " . __FUNCTION__);
+}
