@@ -23,27 +23,13 @@ function modulo_compilacion_drupal_help($route_name, RouteMatchInterface $route_
   }
 }
 
-
-/**
- * Implements hook_cron_post_run().
- */
-function modulo_compilacion_drupal_cron_post_run() {
-  $handle = curl_init();
-  $url = "172.22.0.7:3000/ejecutar";
-  // Establecer la url
-  curl_setopt($handle, CURLOPT_URL, $url);
-  //realizar el exec del curl
-  $output = curl_exec($handle);
-  curl_close($handle);
-}
-
 /**
  * Implements hook_entity_postupdate().
  */
 function modulo_compilacion_drupal_entity_postupdate(EntityInterface $entity) {
 
   $handle = curl_init();
-  $url = "172.22.0.7:3000/compilar";
+  $url = "172.22.0.3:3000/compilar";
   // Establecer la url
   curl_setopt($handle, CURLOPT_URL, $url);
  //realizar el exec del curl
@@ -61,7 +47,7 @@ function modulo_compilacion_drupal_entity_postupdate(EntityInterface $entity) {
  */
 function modulo_compilacion_drupal_entity_postinsert(EntityInterface $entity) {
   $handle = curl_init();
-  $url = "172.22.0.7:3000/compilar";
+  $url = "172.22.0.3:3000/compilar";
   curl_setopt($handle, CURLOPT_URL, $url);
   $output = curl_exec($handle);
   curl_close($handle);
@@ -77,7 +63,7 @@ function modulo_compilacion_drupal_entity_postinsert(EntityInterface $entity) {
  */
 function modulo_compilacion_drupal_entity_postdelete(EntityInterface $entity) {
   $handle = curl_init();
-  $url = "172.22.0.7:3000/compilar";
+  $url = "172.22.0.3:3000/compilar";
   curl_setopt($handle, CURLOPT_URL, $url);
   $output = curl_exec($handle);
   curl_close($handle);
@@ -89,13 +75,16 @@ function modulo_compilacion_drupal_entity_postdelete(EntityInterface $entity) {
 }
 
 /**
- * Implements hook_post_run().
- */
-function modulo_compilacion_drupal_post_run($job) {
+ * Implements hook_cache_flush().
+ *//*
+function modulo_compilacion_drupal_cache_flush() {
   $handle = curl_init();
   $url = "172.22.0.7:3000/ejecutar";
+  // Establecer la url
   curl_setopt($handle, CURLOPT_URL, $url);
+  //realizar el exec del curl
   $output = curl_exec($handle);
   curl_close($handle);
-
 }
+
+*/

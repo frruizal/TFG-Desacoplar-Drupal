@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bff703896eb2a1d50e0b215de40cbf6b",
+    "content-hash": "1dbadb715b2e838a46a3a0aba6a7d21e",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1322,17 +1322,17 @@
         },
         {
             "name": "drupal/bootstrap_barrio",
-            "version": "5.1.2",
+            "version": "5.1.4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/bootstrap_barrio.git",
-                "reference": "5.1.2"
+                "reference": "5.1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bootstrap_barrio-5.1.2.zip",
-                "reference": "5.1.2",
-                "shasum": "b525646a047859523396d92fd328a4a325233fe7"
+                "url": "https://ftp.drupal.org/files/projects/bootstrap_barrio-5.1.4.zip",
+                "reference": "5.1.4",
+                "shasum": "957a76d18eecfb1062088f22d3ba9ae9b79af240"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
@@ -1341,8 +1341,8 @@
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "5.1.2",
-                    "datestamp": "1597889062",
+                    "version": "5.1.4",
+                    "datestamp": "1603660710",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
