@@ -76,7 +76,7 @@ function modulo_compilacion_drupal_entity_postdelete(EntityInterface $entity) {
 
 /**
  * Implements hook_cache_flush().
- *//*
+ */
 function modulo_compilacion_drupal_cache_flush() {
   $handle = curl_init();
   $url = "172.22.0.7:3000/ejecutar";
@@ -87,4 +87,14 @@ function modulo_compilacion_drupal_cache_flush() {
   curl_close($handle);
 }
 
+/*
+function modulo_compilacion_drupal_cron() {
+  $handle = curl_init();
+  $url = "172.22.0.7:3000/ejecutar";
+  // Establecer la url
+  curl_setopt($handle, CURLOPT_URL, $url);
+  //realizar el exec del curl
+  $output = curl_exec($handle);
+  curl_close($handle);
+}
 */

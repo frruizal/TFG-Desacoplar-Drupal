@@ -86,13 +86,7 @@ services:
     container_name: "${PROJECT_NAME}_node"
     ports:
       - '3000:8000'
-    #networks:
-      #extnetwork:
-        #ipv4_address: 172.22.0.2
 
-#networks:
-  #extnetwork:
-    #ipam:
-      #config:
-        #- subnet: 172.22.0.0/16
+
+
 
