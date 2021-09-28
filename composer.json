@@ -16,6 +16,9 @@
     ],
     "require": {
         "composer-plugin-api": "^1.1",
+        "civicrm/civicrm-core": "~5.35",
+        "civicrm/civicrm-drupal-8": "~5.35",
+        "civicrm/civicrm-packages": "~5.35",
         "composer/installers": "^1.2",
         "drupal/admin_toolbar": "^3.0",
         "drupal/adminimal_admin_toolbar": "^1.8",
@@ -52,7 +55,7 @@
         "sort-packages": true
     },
     "extra": {
-        "enable-patching": true,
+        "enable-patching": "true",
         "patches": {
             "drupal/core": {
                 "Vocabulary name not shown in View for Anonymous Users": "https://www.drupal.org/files/issues/2021-04-21/taxonomy_vocabulary_view_permission-3114365.patch"

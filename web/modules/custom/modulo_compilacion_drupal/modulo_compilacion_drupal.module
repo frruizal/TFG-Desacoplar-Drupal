@@ -29,7 +29,7 @@ function modulo_compilacion_drupal_help($route_name, RouteMatchInterface $route_
 function modulo_compilacion_drupal_entity_postupdate(EntityInterface $entity) {
 
   $handle = curl_init();
-  $url = "172.22.0.7:3000/compilar";
+  $url = "172.18.0.7:3000/actualizar";
   // Establecer la url
   curl_setopt($handle, CURLOPT_URL, $url);
  //realizar el exec del curl
@@ -48,7 +48,7 @@ function modulo_compilacion_drupal_entity_postupdate(EntityInterface $entity) {
  */
 function modulo_compilacion_drupal_entity_postinsert(EntityInterface $entity) {
   $handle = curl_init();
-  $url = "172.22.0.7:3000/actualizar";
+  $url = "172.18.0.7:3000/actualizar";
   curl_setopt($handle, CURLOPT_URL, $url);
   $output = curl_exec($handle);
   curl_close($handle);
@@ -64,7 +64,7 @@ function modulo_compilacion_drupal_entity_postinsert(EntityInterface $entity) {
  */
 function modulo_compilacion_drupal_entity_postdelete(EntityInterface $entity) {
   $handle = curl_init();
-  $url = "172.22.0.7:3000/compilar";
+  $url = "172.18.0.7:3000/compilar";
   curl_setopt($handle, CURLOPT_URL, $url);
   $output = curl_exec($handle);
   curl_close($handle);
